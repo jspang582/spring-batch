@@ -19,6 +19,14 @@ package org.springframework.batch.item;
 import org.springframework.lang.Nullable;
 
 /**
+ *
+ * 提供数据的策略接口。
+ *
+ * 实现应该是有状态的，并且对每个批处理将调用多次，每次调用read()都会返回不同的值，最后在耗尽所有输入数据时返回null。
+ *
+ * 实现不需要是线程安全的，ItemReader的客户端需要意识到这一点。
+ * 更丰富的接口(例如提前查看或窥视)是不可行的，因为我们需要在异步批处理中支持事务。
+ *
  * Strategy interface for providing the data. <br>
  * 
  * Implementations are expected to be stateful and will be called multiple times
@@ -40,6 +48,9 @@ import org.springframework.lang.Nullable;
 public interface ItemReader<T> {
 
 	/**
+	 * 读取一段输入数据并前进到下一段。实现必须在输入数据集的末尾返回null。
+	 * 在事务设置中，如果第一个调用位于回滚的事务中，调用方可能会从连续的调用(或以其他方式)中两次获得相同的项。
+	 *
 	 * Reads a piece of input data and advance to the next one. Implementations
 	 * <strong>must</strong> return <code>null</code> at the end of the input
 	 * data set. In a transactional setting, caller might get the same item

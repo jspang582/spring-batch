@@ -19,6 +19,10 @@ package org.springframework.batch.item;
 import java.util.List;
 
 /**
+ * 通用输出操作的基本接口。实现此接口的类将负责在必要时序列化对象。通常，实现类的职责是决定使用哪种技术进行映射以及应该如何配置它。
+ *
+ * write方法负责确保所有内部缓冲区都被刷新。如果事务是活动的，那么在后续回滚时通常也需要丢弃输出。写入器向其发送数据的资源本身通常应该能够处理这个问题。
+ *
  * <p>
  * Basic interface for generic output operations. Class implementing this
  * interface will be responsible for serializing objects as necessary.
@@ -39,6 +43,8 @@ import java.util.List;
 public interface ItemWriter<T> {
 
 	/**
+	 * 处理提供的数据元素。将不会在正常操作中调用任何空项。
+	 *
 	 * Process the supplied data element. Will not be called with any null items
 	 * in normal operation.
 	 *

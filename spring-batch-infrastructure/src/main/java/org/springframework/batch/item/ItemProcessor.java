@@ -19,6 +19,9 @@ package org.springframework.batch.item;
 import org.springframework.lang.Nullable;
 
 /**
+ * item转换接口。给定一个条目作为输入，该接口提供了一个扩展点，允许在面向条目的处理场景中应用业务逻辑。
+ * 需要注意的是，虽然可以返回不同于所提供的类型的类型，但这并不是严格必要的。此外，返回null表示不应该继续处理该项。
+ *
  * Interface for item transformation.  Given an item as input, this interface provides
  * an extension point which allows for the application of business logic in an item 
  * oriented processing scenario.  It should be noted that while it's possible to return
@@ -32,6 +35,8 @@ import org.springframework.lang.Nullable;
 public interface ItemProcessor<I, O> {
 
 	/**
+	 * 处理提供的item，返回可能修改的项或新项以继续处理。如果返回的结果为空，则假定该项的处理不应该继续。
+	 *
 	 * Process the provided item, returning a potentially modified or new item for continued
 	 * processing.  If the returned result is null, it is assumed that processing of the item
 	 * should not continue.
