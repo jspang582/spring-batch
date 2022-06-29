@@ -16,6 +16,9 @@
 package org.springframework.batch.core;
 
 /**
+ * 作为所有步骤域侦听器的父级的标记接口。
+ * 例如:StepExecutionListener, ChunkListener, ItemReadListener和ItemWriteListener
+ *
  * Marker interface that acts as a parent to all step
  * domain listeners, such as: {@link StepExecutionListener}, 
  * {@link ChunkListener}, {@link ItemReadListener} and

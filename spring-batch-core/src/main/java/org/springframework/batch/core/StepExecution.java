@@ -27,6 +27,8 @@ import org.springframework.batch.item.ExecutionContext;
 import org.springframework.util.Assert;
 
 /**
+ * 批处理域对象表示执行步骤。与object不同的是，还有一些额外的属性与项目的处理相关，比如提交计数等。
+ *
  * Batch domain object representation the execution of a step. Unlike
  * {@link JobExecution}, there are additional properties related the processing
  * of items such as commit count, etc.

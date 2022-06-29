@@ -16,6 +16,8 @@
 package org.springframework.batch.core;
 
 /**
+ * 批处理域接口表示配置的一个步骤。与Job一样，Step用于由开发人员显式地表示步骤的配置，同时也表示执行步骤的能力。
+ *
  * Batch domain interface representing the configuration of a step. As with the {@link Job}, a {@link Step} is meant to
  * explicitly represent the configuration of a step by a developer, but also the ability to execute the step.
  * 

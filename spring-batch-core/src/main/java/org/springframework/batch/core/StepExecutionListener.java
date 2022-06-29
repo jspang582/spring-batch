@@ -18,6 +18,8 @@ package org.springframework.batch.core;
 import org.springframework.lang.Nullable;
 
 /**
+ * Step生命周期的侦听器接口。
+ *
  * Listener interface for the lifecycle of a {@link Step}.
  *
  * @author Lucas Ward
@@ -28,6 +30,8 @@ import org.springframework.lang.Nullable;
 public interface StepExecutionListener extends StepListener {
 
 	/**
+	 * 从当前作用域使用StepExecution初始化侦听器的状态。
+	 *
 	 * Initialize the state of the listener with the {@link StepExecution} from
 	 * the current scope.
 	 *
@@ -36,6 +40,10 @@ public interface StepExecutionListener extends StepListener {
 	void beforeStep(StepExecution stepExecution);
 
 	/**
+	 * 让侦听器有机会修改步骤的退出状态。
+	 * 返回的值将使用ExitStatus和(ExitStatus)与正常退出状态结合在一起。
+	 * 在步骤的处理逻辑执行后调用(成功或失败)。在此方法中抛出异常不会产生任何影响，它只会被记录下来。
+	 *
 	 * Give a listener a chance to modify the exit status from a step. The value
 	 * returned will be combined with the normal exit status using
 	 * {@link ExitStatus#and(ExitStatus)}.

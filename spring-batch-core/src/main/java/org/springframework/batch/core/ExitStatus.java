@@ -22,6 +22,8 @@ import java.io.Serializable;
 import java.io.StringWriter;
 
 /**
+ * 值对象，用于携带有关作业或步骤执行状态的信息。ExitStatus是不可变的，因此是线程安全的。
+ *
  * Value object used to carry information about the status of a
  * job or step execution.
  *

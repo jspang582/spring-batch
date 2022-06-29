@@ -21,6 +21,9 @@ import java.io.Serializable;
 import org.springframework.util.ClassUtils;
 
 /**
+ * 批处理域实体类。任何应该与另一个唯一标识的类都应该是Entity的子类。
+ * 关于这个模式的更多信息以及实体和值对象之间的区别可以在Eric Evans的《领域驱动设计》一书中找到。
+ *
  * Batch Domain Entity class. Any class that should be uniquely identifiable
  * from another should subclass from Entity. More information on this pattern
  * and the difference between Entities and Value Objects can be found in Domain

@@ -19,6 +19,11 @@ package org.springframework.batch.core;
 import org.springframework.util.Assert;
 
 /**
+ * 批处理域对象表示唯一可标识的作业运行。
+ * JobInstance可以在执行失败的情况下重新启动多次，它的生命周期在第一次成功执行时结束。
+ *
+ * 尝试执行已经成功完成的现有JobInstance将导致错误。如果Job不可重启，尝试重启失败的JobInstance也会引发错误。
+ *
  * Batch domain object representing a uniquely identifiable job run.
  * JobInstance can be restarted multiple times in case of execution failure and
  * it's lifecycle ends with first successful execution.

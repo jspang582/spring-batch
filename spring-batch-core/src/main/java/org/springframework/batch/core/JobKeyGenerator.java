@@ -16,6 +16,8 @@
 package org.springframework.batch.core;
 
 /**
+ * 策略接口，用于生成用于标识唯一JobInstance的键。
+ *
  * Strategy interface for the generation of the key used in identifying
  * unique {@link JobInstance}.
  *
@@ -28,6 +30,7 @@ package org.springframework.batch.core;
 public interface JobKeyGenerator<T> {
 
 	/**
+	 * 生成用于标识作业实例的唯一键的方法。
 	 * Method to generate the unique key used to identify a job instance.
 	 *
 	 * @param source Source information used to generate the key (must not be {@code null})

@@ -32,6 +32,8 @@ import org.springframework.batch.item.ExecutionContext;
 import org.springframework.lang.Nullable;
 
 /**
+ * 表示作业执行的批处理域对象。
+ *
  * Batch domain object representing the execution of a job.
  *
  * @author Lucas Ward

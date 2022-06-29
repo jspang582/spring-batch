@@ -19,6 +19,8 @@ import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 
 /**
+ * 围绕item读取的侦听器接口。
+ *
  * Listener interface around the reading of an item.
  * 
  * @author Lucas Ward
@@ -28,11 +30,16 @@ import org.springframework.batch.item.ItemWriter;
 public interface ItemReadListener<T> extends StepListener {
 
 	/**
+	 * 在ItemReader.read()前调用。
+	 *
 	 * Called before {@link ItemReader#read()}
 	 */
 	void beforeRead();
 	
 	/**
+	 * 在ItemReader.read()后调用。
+	 * 这个方法只对实际的items调用(即当读取器返回null时不调用)。
+	 *
 	 * Called after {@link ItemReader#read()}.
 	 * This method is called only for actual items (ie it is not called when the
 	 * reader returns null).
@@ -42,6 +49,8 @@ public interface ItemReadListener<T> extends StepListener {
 	void afterRead(T item);
 	
 	/**
+	 * 当尝试读取过程中出现异常时调用。
+	 *
 	 * Called if an error occurs while trying to read.
 	 * 
 	 * @param ex thrown from {@link ItemWriter}

@@ -26,6 +26,12 @@ import org.springframework.batch.core.explore.JobExplorer;
 import org.springframework.util.Assert;
 
 /**
+ * 用于创建JobParameters的Helper类。
+ * 有用是因为所有JobParameter对象都是不可变的，必须单独实例化以确保类型安全。
+ * 一旦创建，它就可以在java.lang.StringBuilder中使用(除了顺序无关)，添加各种参数类型并在完成后创建有效的JobParameters。
+ *
+ * 使用标识标志指示是否将该参数用于JobInstance的标识。该标志默认为true。
+ *
  * Helper class for creating {@link JobParameters}. Useful because all
  * {@link JobParameter} objects are immutable, and must be instantiated separately
  * to ensure type safety. Once created, it can be used in the
