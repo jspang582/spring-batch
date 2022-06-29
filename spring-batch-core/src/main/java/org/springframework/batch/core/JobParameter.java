@@ -20,6 +20,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
+ * 批处理作业参数的域表示形式。参数只能是以下类型:String、Long、Date和Double。
+ * 标识标志用于指示是否将该参数用作作业实例标识的一部分。
+ *
  * Domain representation of a parameter to a batch job. Only the following types
  * can be parameters: String, Long, Date, and Double.  The identifying flag is
  * used to indicate if the parameter is to be used as part of the identification of

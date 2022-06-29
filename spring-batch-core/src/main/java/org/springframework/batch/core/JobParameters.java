@@ -25,6 +25,11 @@ import java.util.Properties;
 import org.springframework.lang.Nullable;
 
 /**
+ * 值对象，表示批处理作业的运行时参数。
+ * 因为参数在包含它们的JobParameters之外没有单独的含义，所以它是一个值对象而不是实体。
+ * 为了确定一个JobParameters对象是否等于另一个对象，可以可靠地将一个parameters对象与另一个进行相等比较，这也是极其重要的。
+ * 此外，由于需要持久化这些参数，因此对添加的类型进行限制至关重要。这个类是不可变的，因此是线程安全的。
+ *
  * Value object representing runtime parameters to a batch job. Because the
  * parameters have no individual meaning outside of the JobParameters they are
  * contained within, it is a value object rather than an entity. It is also

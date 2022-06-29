@@ -18,6 +18,8 @@ package org.springframework.batch.core;
 import org.springframework.lang.Nullable;
 
 /**
+ * Job用于验证执行参数的策略接口。
+ *
  * Strategy interface for a {@link Job} to use in validating its parameters for
  * an execution.
  * 
@@ -28,6 +30,8 @@ import org.springframework.lang.Nullable;
 public interface JobParametersValidator {
 
 	/**
+	 * 检查参数是否满足适当的要求，如果不满足，则抛出异常。
+	 *
 	 * Check the parameters meet whatever requirements are appropriate, and
 	 * throw an exception if not.
 	 * 

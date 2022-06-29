@@ -18,6 +18,8 @@ package org.springframework.batch.core;
 import org.springframework.lang.Nullable;
 
 /**
+ * 能够按顺序获取下一个JobParameters的接口。
+ *
  * Interface for obtaining the next {@link JobParameters} in a sequence.
  * 
  * @author Dave Syer
@@ -28,6 +30,8 @@ import org.springframework.lang.Nullable;
 public interface JobParametersIncrementer {
 
 	/**
+	 * 增加提供的参数。如果输入为空，那么这应该返回一个bootstrap或初始值，用于作业的第一个实例。
+	 *
 	 * Increment the provided parameters. If the input is empty, then this
 	 * should return a bootstrap or initial value to be used on the first
 	 * instance of a job.
