@@ -24,6 +24,10 @@ import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteExcep
 import org.springframework.batch.core.repository.JobRestartException;
 
 /**
+ * 基于不同的运行时标识符控制作业的简单接口，包括可能的特别执行。
+ * 非常重要的一点是，这个接口绝对不能保证对它的调用是同步执行还是异步执行。
+ * 应该检查特定实现的javadocs，以确保调用方完全理解作业将如何运行。
+ *
  * Simple interface for controlling jobs, including possible ad-hoc executions,
  * based on different runtime identifiers. It is extremely important to note
  * that this interface makes absolutely no guarantees about whether or not calls
@@ -38,6 +42,11 @@ import org.springframework.batch.core.repository.JobRestartException;
 public interface JobLauncher {
 
 	/**
+	 * 为给定的job和JobParameters启动一个作业执行。
+	 * 如果JobExecution能够成功创建，那么这个方法将始终返回它，无论执行是否成功。
+	 * 如果有一个过去的JobExecution已经暂停，返回相同的JobExecution，而不是一个新的创建的JobExecution。
+	 * 只有在作业启动失败时才会引发异常。如果作业在处理过程中遇到一些错误，将返回JobExecution，并且需要检查状态。
+	 *
 	 * Start a job execution for the given {@link Job} and {@link JobParameters}
 	 * . If a {@link JobExecution} was able to be created successfully, it will
 	 * always be returned by this method, regardless of whether or not the

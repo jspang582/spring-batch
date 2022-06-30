@@ -19,10 +19,15 @@ package org.springframework.batch.repeat;
 public enum RepeatStatus {
 
 	/**
+	 * 表明处理可以继续。
+	 *
 	 * Indicates that processing can continue.
 	 */
-	CONTINUABLE(true), 
+	CONTINUABLE(true),
+
 	/**
+	 * 表明处理已完成(成功或不成功)。
+	 *
 	 * Indicates that processing is finished (either successful or unsuccessful)
 	 */
 	FINISHED(false);

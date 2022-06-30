@@ -16,6 +16,9 @@
 
 package org.springframework.batch.core;
 
+import org.springframework.batch.item.ExecutionContext;
+import org.springframework.util.Assert;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
@@ -23,11 +26,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import org.springframework.batch.item.ExecutionContext;
-import org.springframework.util.Assert;
-
 /**
- * 批处理域对象表示执行步骤。与object不同的是，还有一些额外的属性与项目的处理相关，比如提交计数等。
+ * 批处理域对象表示执行步骤。与JobExecution不同的是，还有一些额外的属性与项目的处理相关，比如提交计数等。
  *
  * Batch domain object representation the execution of a step. Unlike
  * {@link JobExecution}, there are additional properties related the processing
@@ -325,6 +325,8 @@ public class StepExecution extends Entity {
 	}
 
 	/**
+	 * 封闭作业的执行上下文信息的访问器。
+	 *
 	 * Accessor for the execution context information of the enclosing job.
 	 *
 	 * @return the {@link JobExecution} that was used to start this step

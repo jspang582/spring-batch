@@ -25,6 +25,15 @@ import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.Scope;
 
 /**
+ * step上下文的作用域。这个范围中的对象使用Spring容器作为对象工厂，因此每个执行步骤只有一个这样的bean实例。
+ * 这个范围内的所有对象都是(不需要修饰bean定义)。步骤上下文的范围。这个范围中的对象使用Spring容器作为对象工厂，因此每个执行步骤只有一个这样的bean实例。
+ * 这个范围内的所有对象都是<aop:scoped-proxy/>(不需要修饰bean定义)。
+ *
+ * 此外，还支持使用spel表达式访问从JobContext引用的后期绑定。使用这个特性，可以从作业或作业执行上下文和作业参数中提取bean属性。
+ *
+ * JobContext是使用标准bean属性路径(根据BeanWrapper)引用的。示例都展示了Map访问器的使用，它为作业属性提供了便利。
+ *
+ * Scope for step context. Objects in this scope use the Spring container as an object factory, so there is only one instance of such a bean per executing step. All objects in this scope are <aop:scoped-proxy/> (no need to decorate the bean definitions).
  * Scope for step context. Objects in this scope use the Spring container as an
  * object factory, so there is only one instance of such a bean per executing
  * step. All objects in this scope are &lt;aop:scoped-proxy/&gt; (no need to

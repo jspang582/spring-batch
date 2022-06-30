@@ -21,6 +21,8 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.lang.Nullable;
 
 /**
+ * 步骤处理的策略。
+ *
  * Strategy for processing in a step.
  * 
  * @author Dave Syer
@@ -30,6 +32,9 @@ import org.springframework.lang.Nullable;
 public interface Tasklet {
 
 	/**
+	 * 以步骤贡献的形式给出当前上下文，执行任何必要的操作来在事务中处理此单元。
+	 * 实现返回RepeatStatus。如果完成，实现者需返回RepeatStatus.FINISHED。如果不是，则返回RepeatStatus.CONTINUABLE。失败时抛出异常。
+	 *
 	 * Given the current context in the form of a step contribution, do whatever
 	 * is necessary to process this unit inside a transaction. Implementations
 	 * return {@link RepeatStatus#FINISHED} if finished. If not they return
