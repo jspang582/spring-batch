@@ -31,6 +31,8 @@ import org.springframework.transaction.annotation.Isolation;
 import java.util.Collection;
 
 /**
+ * 负责批处理元数据实体持久性的存储库。
+ *
  * <p>
  * Repository responsible for persistence of batch meta-data entities.
  * </p>
@@ -49,6 +51,8 @@ import java.util.Collection;
 public interface JobRepository {
 
 	/**
+	 * 使用提供的参数检查该作业的实例是否已经存在。
+	 *
 	 * Check if an instance of this job already exists with the parameters
 	 * provided.
 	 *
@@ -60,6 +64,8 @@ public interface JobRepository {
 	boolean isJobInstanceExists(String jobName, JobParameters jobParameters);
 
 	/**
+	 * 使用提供的名称和作业参数创建一个新的JobInstance。
+	 *
 	 * Create a new {@link JobInstance} with the name and job parameters provided.
 	 *
 	 * @param jobName logical name of the job
@@ -69,6 +75,8 @@ public interface JobRepository {
 	JobInstance createJobInstance(String jobName, JobParameters jobParameters);
 
 	/**
+	 * 基于与之关联的JobInstance、用于执行它的JobParameters和定义作业的配置文件的位置创建一个新的jobeexecution。
+	 *
 	 * Create a new {@link JobExecution} based upon the {@link JobInstance} it's associated
 	 * with, the {@link JobParameters} used to execute it with and the location of the configuration
 	 * file that defines the job.
@@ -81,6 +89,9 @@ public interface JobRepository {
 	JobExecution createJobExecution(JobInstance jobInstance, JobParameters jobParameters, String jobConfigurationLocation);
 
 	/**
+	 * 为给定的Job和JobParameters创建一个JobExecution。如果匹配的JobInstance已经存在，该作业必须是可重启的，并且它的最后一次JobExecution必须未完成。如果匹配的JobInstance还不存在，就会创建它。
+	 *
+	 *
 	 * <p>
 	 * Create a {@link JobExecution} for a given {@link Job} and
 	 * {@link JobParameters}. If matching {@link JobInstance} already exists,
@@ -122,6 +133,8 @@ public interface JobRepository {
 			throws JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException;
 
 	/**
+	 * 更新jobeexecution(但不是它的ExecutionContext)。前提条件:jobeexecution必须包含一个有效的JobInstance并被保存(分配一个id)。
+	 *
 	 * Update the {@link JobExecution} (but not its {@link ExecutionContext}).
 	 *
 	 * Preconditions: {@link JobExecution} must contain a valid
@@ -132,6 +145,8 @@ public interface JobRepository {
 	void update(JobExecution jobExecution);
 
 	/**
+	 * 保存StepExecution和它的ExecutionContext。ID将被分配-不允许在调用此方法之前分配ID。相反，它应该被留空，由JobRepository分配。前提条件:StepExecution必须有一个有效的Step。
+	 *
 	 * Save the {@link StepExecution} and its {@link ExecutionContext}. ID will
 	 * be assigned - it is not permitted that an ID be assigned before calling
 	 * this method. Instead, it should be left blank, to be assigned by a
@@ -144,6 +159,8 @@ public interface JobRepository {
 	void add(StepExecution stepExecution);
 
 	/**
+	 * 保存StepExecutions和每个ExecutionContext的集合。将分配StepExecution ID -不允许在调用这个方法之前分配ID。相反，它应该被留空，由JobRepository分配。前提条件:StepExecution必须有一个有效的Step。
+	 *
 	 * Save a collection of {@link StepExecution}s and each {@link ExecutionContext}. The
 	 * StepExecution ID will be assigned - it is not permitted that an ID be assigned before calling
 	 * this method. Instead, it should be left blank, to be assigned by {@link JobRepository}.
@@ -155,6 +172,8 @@ public interface JobRepository {
 	void addAll(Collection<StepExecution> stepExecutions);
 
 	/**
+	 * 更新StepExecution(但不是它的ExecutionContext)。前提条件:必须保存StepExecution(分配id)。
+	 *
 	 * Update the {@link StepExecution} (but not its {@link ExecutionContext}).
 	 *
 	 * Preconditions: {@link StepExecution} must be saved (have an id assigned).
@@ -164,6 +183,8 @@ public interface JobRepository {
 	void update(StepExecution stepExecution);
 
 	/**
+	 * 持久化给定StepExecution的更新的ExecutionContexts。
+	 *
 	 * Persist the updated {@link ExecutionContext}s of the given
 	 * {@link StepExecution}.
 	 *
@@ -172,6 +193,8 @@ public interface JobRepository {
 	void updateExecutionContext(StepExecution stepExecution);
 
 	/**
+	 * 持久化给定jobeexecution的更新后的ExecutionContext。
+	 *
 	 * Persist the updated {@link ExecutionContext} of the given
 	 * {@link JobExecution}.
 	 * @param jobExecution {@link JobExecution} instance to be used to update the context.

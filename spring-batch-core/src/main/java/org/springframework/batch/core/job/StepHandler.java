@@ -25,6 +25,8 @@ import org.springframework.batch.core.StepExecution;
 import org.springframework.batch.core.repository.JobRestartException;
 
 /**
+ * 代表Job处理Step的策略接口。
+ *
  * Strategy interface for handling a {@link Step} on behalf of a {@link Job}.
  * 
  * @author Dave Syer
@@ -33,6 +35,8 @@ import org.springframework.batch.core.repository.JobRestartException;
 public interface StepHandler {
 
 	/**
+	 * 处理一个步骤并返回它的执行。不要保存JobExecution，但如果需要，应该管理StepExecution的持久性(例如，至少需要在执行步骤之前将其添加到存储库中)。
+	 *
 	 * Handle a step and return the execution for it. Does not save the
 	 * {@link JobExecution}, but should manage the persistence of the
 	 * {@link StepExecution} if required (e.g. at least it needs to be added to

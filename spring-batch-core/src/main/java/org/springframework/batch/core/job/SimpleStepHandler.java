@@ -32,6 +32,8 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.util.Assert;
 
 /**
+ * StepHandler的实现，用于管理存储库和重新启动关注点。
+ *
  * Implementation of {@link StepHandler} that manages repository and restart
  * concerns.
  *

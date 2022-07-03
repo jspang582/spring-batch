@@ -28,6 +28,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
+ * JobParametersValidator的默认实现。
+ *
  * Default implementation of {@link JobParametersValidator}.
  *
  * @author Dave Syer
@@ -75,6 +77,8 @@ public class DefaultJobParametersValidator implements JobParametersValidator, In
 	}
 
 	/**
+	 * 检查参数是否符合所提供的规格。如果显式指定了可选键，那么所有键都必须在该列表中，或者在必需列表中。否则，指定的所有键都必须存在。
+	 *
 	 * Check the parameters meet the specification provided. If optional keys
 	 * are explicitly specified then all keys must be in that list, or in the
 	 * required list. Otherwise all keys that are specified as required must be

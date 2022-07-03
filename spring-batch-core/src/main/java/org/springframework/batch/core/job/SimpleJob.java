@@ -31,6 +31,8 @@ import org.springframework.batch.core.repository.JobRestartException;
 import org.springframework.batch.core.step.StepLocator;
 
 /**
+ * Job接口的简单实现，提供了运行JobExecution的能力。通过遍历作业的步骤列表，顺序地执行作业。任何失败的步骤都会使任务失败。当所有步骤都执行完时，作业就被认为完成了。
+ *
  * Simple implementation of {@link Job} interface providing the ability to run a
  * {@link JobExecution}. Sequentially executes a job by iterating through its
  * list of steps.  Any {@link Step} that fails will fail the job.  The job is
