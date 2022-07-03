@@ -16,11 +16,13 @@
 
 package org.springframework.batch.core.scope.context;
 
-import java.util.Arrays;
-
 import org.springframework.core.AttributeAccessorSupport;
 
+import java.util.Arrays;
+
 /**
+ * 上下文对象，用于在块期间存储的弱类型数据(通常是在事务中一起处理的一组项)。如果有回滚并且重新尝试块，则相同的上下文将与它关联。
+ *
  * Context object for weakly typed data stored for the duration of a chunk
  * (usually a group of items processed together in a transaction). If there is a
  * rollback and the chunk is retried the same context will be associated with

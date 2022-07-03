@@ -18,6 +18,8 @@ package org.springframework.batch.core;
 import java.io.Serializable;
 
 /**
+ * 表示对StepExecution的贡献，缓冲更改，直到它们可以应用于块边界。
+ *
  * Represents a contribution to a {@link StepExecution}, buffering changes until
  * they can be applied at a chunk boundary.
  *

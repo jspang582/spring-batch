@@ -16,15 +16,20 @@
 
 package org.springframework.batch.item;
 
+import org.springframework.lang.Nullable;
+
 import java.io.Serializable;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.springframework.lang.Nullable;
-
 /**
+ * 表示ItemStream的上下文的对象。它是映射的一个浅包装，允许读取时可选的类型安全。
+ * 它还允许通过在调用任何put时设置一个'dirty'标志来进行脏检查。
+ *
+ * 注意，放置null值相当于删除给定键的条目。
+ *
  * Object representing a context for an {@link ItemStream}. It is a thin wrapper
  * for a map that allows optionally for type safety on reads. It also allows for
  * dirty checking by setting a 'dirty' flag whenever any put is called.

@@ -17,6 +17,8 @@
 package org.springframework.batch.core;
 
 /**
+ * 表示“执行”状态的枚举。
+ *
  * Enumeration representing the status of an Execution.
  * 
  * @author Lucas Ward
@@ -27,6 +29,11 @@ package org.springframework.batch.core;
 public enum BatchStatus {
 
 	/**
+	 * 状态值的顺序非常重要，因为它可以用于聚合一组状态值—结果应该是最大值。
+	 * 因为COMPLETED在顺序中是第一位的，只有当执行的所有元素都是COMPLETED时，聚合状态才会是COMPLETED。
+	 * 一个正在运行的执行预计将从STARTING移动到STARTED再到COMPLETED(通过upgradeTo(BatchStatus)定义的顺序)。
+	 * 高于STARTED的值表示更严重的故障。ABANDONED用于已经完成处理但没有成功的步骤，并且在重新启动时应该跳过这些步骤(因此FAILED是错误的状态)。
+	 *
 	 * The order of the status values is significant because it can be used to
 	 * aggregate a set of status values - the result should be the maximum
 	 * value. Since COMPLETED is first in the order, only if all elements of an
@@ -44,6 +51,8 @@ public enum BatchStatus {
 	}
 
 	/**
+	 * 决定一个状态是否表明工作正在进行。
+	 *
 	 * Convenience method to decide if a status indicates work is in progress.
 	 * 
 	 * @return true if the status is STARTING, STARTED
@@ -53,6 +62,8 @@ public enum BatchStatus {
 	}
 
 	/**
+	 * 决定状态是否表明执行失败。
+	 *
 	 * Convenience method to decide if a status indicates execution was
 	 * unsuccessful.
 	 * 
@@ -63,6 +74,10 @@ public enum BatchStatus {
 	}
 
 	/**
+	 * 用于在其逻辑进程中移动状态值，并用较严重的故障覆盖较轻的故障。
+	 * 该值将与参数进行比较，并返回优先级更高的值。
+	 * 如果两者都是STARTED或小于，则返回值为start, STARTED, COMPLETED序列中最大的。否则返回的值是两者中的最大值。
+	 *
 	 * Method used to move status values through their logical progression, and
 	 * override less severe failures with more severe ones. This value is
 	 * compared with the parameter and the one that has higher priority is
@@ -132,6 +147,8 @@ public enum BatchStatus {
 	}
 
 	/**
+	 * 查找与给定值开头匹配的BatchStatus。如果没有找到匹配，则返回COMPLETED作为默认值，因为has优先级较低。
+	 *
 	 * Find a BatchStatus that matches the beginning of the given value. If no
 	 * match is found, return COMPLETED as the default because has is low
 	 * precedence.

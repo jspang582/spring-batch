@@ -18,6 +18,8 @@ package org.springframework.batch.core;
 import org.springframework.batch.core.scope.context.ChunkContext;
 
 /**
+ * 块生命周期的侦听器接口。块可以被认为是将一起提交的项目的集合。
+ *
  * Listener interface for the lifecycle of a chunk.  A chunk
  * can be thought of as a collection of items that will be
  * committed together.
