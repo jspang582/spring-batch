@@ -22,6 +22,8 @@ import org.springframework.batch.core.step.NoSuchStepException;
 import java.util.Collection;
 
 /**
+ * 注册表跟踪Job中定义的所有步骤。
+ *
  * Registry keeping track of all the {@link Step} defined in a
  * {@link org.springframework.batch.core.Job}.
  *

@@ -18,6 +18,8 @@ package org.springframework.batch.core.configuration;
 import org.springframework.batch.core.Job;
 
 /**
+ * 创造一个单例job的策略。
+ *
  * Strategy for creating a single job.
  * 
  * @author Dave Syer

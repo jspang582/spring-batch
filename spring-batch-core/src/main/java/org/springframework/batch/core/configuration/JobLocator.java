@@ -20,6 +20,8 @@ import org.springframework.batch.core.launch.NoSuchJobException;
 import org.springframework.lang.Nullable;
 
 /**
+ * 运行时服务定位器接口，用于按名称检索作业配置。
+ *
  * A runtime service locator interface for retrieving job configurations by
  * <code>name</code>.
  * 
@@ -30,6 +32,8 @@ import org.springframework.lang.Nullable;
 public interface JobLocator {
 
 	/**
+	 * 在运行时定位作业。
+	 *
 	 * Locates a {@link Job} at runtime.
 	 * 
 	 * @param name the name of the {@link Job} which should be

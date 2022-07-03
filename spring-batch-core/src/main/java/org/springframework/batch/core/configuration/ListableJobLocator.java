@@ -18,6 +18,8 @@ package org.springframework.batch.core.configuration;
 import java.util.Collection;
 
 /**
+ * JobLocator的一个列表扩展。
+ *
  * A listable extension of {@link JobLocator}.
  * 
  * @author Dave Syer

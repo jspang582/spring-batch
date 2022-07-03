@@ -36,6 +36,9 @@ import java.util.Map.Entry;
 import java.util.Properties;
 
 /**
+ * JobParameters实例的转换器，使用属性键的简单命名约定。
+ * 以-作为前缀的键名被认为是非标识的，不会作为JobInstance的标识。以“(<type>)”结尾的键名(其中类型为string、date、long之一)被转换为相应的类型。默认类型为字符串。
+ *
  * Converter for {@link JobParameters} instances using a simple naming
  * convention for property keys. Key names that are prefixed with a - are
  * considered non-identifying and will not contribute to the identity of a

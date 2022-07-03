@@ -18,6 +18,8 @@ package org.springframework.batch.core.configuration;
 import org.springframework.batch.core.Job;
 
 /**
+ * 运行时服务注册接口，用于按名称注册作业配置。
+ *
  * A runtime service registry interface for registering job configurations by
  * <code>name</code>.
  * 
@@ -27,6 +29,8 @@ import org.springframework.batch.core.Job;
 public interface JobRegistry extends ListableJobLocator {
 
 	/**
+	 * 在运行时注册一个作业。
+	 *
 	 * Registers a {@link Job} at runtime.
 	 * 
 	 * @param jobFactory the {@link Job} to be registered
@@ -37,6 +41,8 @@ public interface JobRegistry extends ListableJobLocator {
 	void register(JobFactory jobFactory) throws DuplicateJobException;
 
 	/**
+	 * 注销之前注册的Job。如果它之前没有注册，就不会出现错误。
+	 *
 	 * Unregisters a previously registered {@link Job}. If it was not
 	 * previously registered there is no error.
 	 * 
