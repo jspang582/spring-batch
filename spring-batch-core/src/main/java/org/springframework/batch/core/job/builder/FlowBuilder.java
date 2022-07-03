@@ -41,6 +41,8 @@ import org.springframework.batch.core.job.flow.support.state.StepState;
 import org.springframework.core.task.TaskExecutor;
 
 /**
+ * 可以作为作业或作业的一部分执行的步骤流的构建器。可以将步骤与依赖于前一步退出状态的条件转换链接在一起。
+ *
  * A builder for a flow of steps that can be executed as a job or as part of a job. Steps can be linked together with
  * conditional transitions that depend on the exit status of the previous step.
  *

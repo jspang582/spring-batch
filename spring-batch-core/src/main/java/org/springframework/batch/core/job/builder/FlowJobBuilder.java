@@ -22,6 +22,8 @@ import org.springframework.batch.core.job.flow.FlowJob;
 import org.springframework.batch.core.step.builder.StepBuilderException;
 
 /**
+ * 一个用于FlowJob实例的作业构建器。流作业将处理委托给由步骤和步骤之间的条件转换组成的嵌套流。
+ *
  * A job builder for {@link FlowJob} instances. A flow job delegates processing to a nested flow composed of steps and
  * conditional transitions between steps.
  * 

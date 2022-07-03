@@ -19,6 +19,8 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.job.flow.Flow;
 
 /**
+ * 方便各种类型job的构建器。
+ *
  * Convenience for building jobs of various kinds.
  *
  * @author Dave Syer

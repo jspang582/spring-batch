@@ -52,6 +52,8 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
+ * Job接口的抽象实现。常见的依赖项，如JobRepository、JobExecutionListeners和各种配置参数都在这里设置。因此，从实现中抽象出常见的错误处理和侦听器调用活动。
+ *
  * Abstract implementation of the {@link Job} interface. Common dependencies
  * such as a {@link JobRepository}, {@link JobExecutionListener}s, and various
  * configuration parameters are set here. Therefore, common error handling and

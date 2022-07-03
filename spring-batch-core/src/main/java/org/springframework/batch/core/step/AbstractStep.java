@@ -44,6 +44,8 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
+ * Step实现，为子类提供公共行为，包括注册和调用侦听器。
+ *
  * A {@link Step} implementation that provides common behavior to subclasses, including registering and calling
  * listeners.
  *

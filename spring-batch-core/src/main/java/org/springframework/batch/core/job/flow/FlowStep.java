@@ -25,6 +25,8 @@ import org.springframework.batch.core.step.AbstractStep;
 import org.springframework.util.Assert;
 
 /**
+ * 委托给流的步骤实现。对于步骤的逻辑分组很有用，特别是对于每次执行有多个步骤的分区。如果流有步骤，那么当FlowStep执行时，包括父FlowStep在内的所有步骤将在JobRepository中执行(父步骤和流步骤各执行一个)。
+ *
  * A {@link Step} implementation that delegates to a {@link Flow}. Useful for
  * logical grouping of steps, and especially for partitioning with multiple
  * steps per execution. If the flow has steps then when the {@link FlowStep}

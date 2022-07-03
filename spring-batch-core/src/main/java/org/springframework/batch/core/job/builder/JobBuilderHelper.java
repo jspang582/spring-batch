@@ -30,6 +30,8 @@ import org.springframework.batch.core.job.AbstractJob;
 import org.springframework.batch.core.repository.JobRepository;
 
 /**
+ * 用于其他作业构建器的基类和实用程序，提供对作业存储库等常见属性的访问。
+ *
  * A base class and utility for other job builders providing access to common properties like job repository.
  * 
  * @author Dave Syer

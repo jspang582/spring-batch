@@ -29,6 +29,8 @@ import org.springframework.batch.core.step.StepHolder;
 import org.springframework.batch.core.step.StepLocator;
 
 /**
+ * Job接口的实现允许复杂的步骤流，而不需要顺序执行。通常，该作业实现被设计为在解析器之后使用，允许名称空间抽象出细节。
+ *
  * Implementation of the {@link Job} interface that allows for complex flows of
  * steps, rather than requiring sequential execution. In general, this job
  * implementation was designed to be used behind a parser, allowing for a
